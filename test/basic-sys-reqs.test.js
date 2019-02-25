@@ -1,13 +1,16 @@
 const { Item, Shop } = require('../src/gilded-rose');
 
-// All items have a sellIn value. All items have a quality value.
-test('All items have name, sellIn, and quality attributes.', () => {
+// Working from the grrk-reqs-short file, basic system requirements section:
+
+// Reqs 1 and 2: Items have sellIn and quality attributes.
+// Constraint C3, the Item class can't be altered, so Items should have name, sellIn, and quality attributes.
+test('Items should only have name, sellIn, and quality attributes.', () => {
   let item = new Item('Test item', 5, 5);
   expect(Object.keys(item)).toEqual(['name', 'sellIn', 'quality']);
 });
 
-// At the end of each day, the system lowers sellIn and quality for each item.
-test('Running updateQuality() results in sellIn decreasing by one, and quality decreasing by one or more, for each normal item.', () => {
+// Req 3: The system lowers sellIn by 1 and quality by 1 (for now) for each (normal) item at the end of each day.
+test('updateQuality() should lower the sellIn (by 1) and quality (by 1 or more) of each item.', () => {
   let items = [new Item('Test item 1', 5, 10), new Item('Test item 2', 1, 5)];
   let shop = new Shop(items);
   shop.updateQuality();
