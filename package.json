@@ -1,15 +1,22 @@
 {
-  "name": "grrk-js-jest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "keywords": [],
-  "author": "Smooth Criminals",
-  "license": "ISC",
-  "devDependencies": {
-    "jest": "^24.1.0"
-  }
+	"name": "grrk-js-jest",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "Smooth Criminals",
+	"license": "ISC",
+	"devDependencies": {
+		"jest": "^24.1.0"
+	},
+	"jest": {
+		"collectCoverage": true,
+		"collectCoverageFrom": [
+			"**/*.js"
+		],
+		"coverageDirectory": "coverage"
+	}
 }
